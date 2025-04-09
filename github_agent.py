@@ -28,8 +28,8 @@ with st.sidebar:
     is_admin = 'admin' in st.query_params
     
     if is_admin:
-        github_token = os.getenv("GITHUB_TOKEN")
-        openai_key = os.getenv("OPENAI_API_KEY")
+        github_token = st.secrets.get("GITHUB_TOKEN")
+        openai_key = st.secrets.get("OPENAI_API_KEY")
     else:
         github_token = st.text_input("GitHub Token", type="password", 
                                     help="Create a token with repo scope at github.com/settings/tokens")
