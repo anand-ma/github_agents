@@ -12,16 +12,17 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+
 # Page config
-st.set_page_config(page_title="🐙 GitHub MCP Agent", page_icon="🐙", layout="wide")
+st.set_page_config(page_title="🔮 GitHub MCP Agent", page_icon="🔮", layout="wide")
 
 # Title and description
-st.markdown("<h1 class='main-header'>🐙 GitHub MCP Agent</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-header'>🔮 GitHub MCP Agent</h1>", unsafe_allow_html=True)
 st.markdown("Explore GitHub repositories with natural language using the Model Context Protocol")
 
 # Setup sidebar for API key
 with st.sidebar:
-    st.header("🔑 Authentication")
+    st.header(":key: Authentication")
     
     # Check for admin parameter in URL using only st.query_params
     is_admin = 'admin' in st.query_params
@@ -40,17 +41,17 @@ with st.sidebar:
             os.environ["OPENAI_API_KEY"] = openai_key
         
     st.markdown("---")
-    st.markdown("### Example Queries")
+    st.markdown("### :mag: Example Queries")
     
-    st.markdown("**Issues**")
+    st.markdown("**:ticket: Issues**")
     st.markdown("- Show me issues by label")
     st.markdown("- What issues are being actively discussed?")
     
-    st.markdown("**Pull Requests**")
+    st.markdown("**🔀 Pull Requests**")
     st.markdown("- What PRs need review?")
     st.markdown("- Show me recent merged PRs")
     
-    st.markdown("**Repository**")
+    st.markdown("**:file_folder: Repository**")
     st.markdown("- Show repository health metrics")
     st.markdown("- Show repository activity patterns")
     
@@ -119,7 +120,7 @@ async def run_github_agent(message):
         return f"Error: {str(e)}"
 
 # Run button
-if st.button("🚀 Run Query", type="primary", use_container_width=True):
+if st.button(":rocket: Run Query", type="primary", use_container_width=True):
     if not github_token:
         st.error("Please enter your GitHub token in the sidebar")
     elif not query:
@@ -162,4 +163,4 @@ if 'result' not in locals():
 
 # Footer
 st.markdown("---")
-st.write("Built with Streamlit, Agno, and Model Context Protocol ❤️")
+st.write(":crystal_ball:  Built with Streamlit, Agno, and Model Context Protocol with ❤️")
